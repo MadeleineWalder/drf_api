@@ -1,6 +1,6 @@
 .App {
-  font-family: "DM Sans", sans-serif;
-  background-color: #f8f8f8;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #dbdbdb;
   min-height: 100vh;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .Content {
-  background-color: #ffffff;
+  background-color: #f8f8f8;
   padding: 10px;
   border-radius: 2px;
   border: 1px solid #dadadf;
@@ -38,10 +38,11 @@ a {
 
 a:hover {
   text-decoration: none;
+  color: #262d3f !important;
 }
 
 a:hover i {
-  color: #2142b2;
+  color: #262d3f;
   transition: color ease-in-out 0.3s;
 }
 
@@ -50,7 +51,7 @@ input[type="file"] {
 }
 
 i {
-  color: #cfced3;
+  color: #cc0404;
   font-size: 1.6rem;
   padding: 7px;
   vertical-align: middle;
@@ -59,7 +60,7 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: #2142b2;
+  color: #262d3f;
 }
 
 figure {
@@ -75,8 +76,8 @@ figure {
   background: #f1f1f1;
 }
 *::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #262d3f;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #cc0404;
 }

@@ -3,6 +3,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 
 
+# the profile model
 class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -13,6 +14,7 @@ class Profile(models.Model):
         upload_to='images/', default='../default_profile_qdjgyp'
     )
 
+    # dispalys with most recent first
     class Meta:
         ordering = ['-created_at']
 
@@ -20,9 +22,11 @@ class Profile(models.Model):
         return f"{self.owner}'s profile"
 
 
+# function run after signal is triggered
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(owner=instance)
 
 
+# signal to ensure a profile is created every time a user is created
 post_save.connect(create_profile, sender=User)

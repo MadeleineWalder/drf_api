@@ -21,10 +21,11 @@ function PostEditForm() {
 
   const [postData, setPostData] = useState({
     title: "",
+    rating: "",
     content: "",
     image: "",
   });
-  const { title, content, image } = postData;
+  const { title, rating, content, image } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -32,14 +33,14 @@ function PostEditForm() {
 
   useEffect(() => {
     const handleMount = async () => {
-        try {
-            const {data} = await axiosReq.get(`/posts/${id}/`)
-            const {title, content, image, is_owner} = data;
+      try {
+        const { data } = await axiosReq.get(`/posts/${id}/`);
+        const { title, rating, content, image, is_owner } = data;
 
-            is_owner ? setPostData({title, content, image}) : history.push('/')
-        } catch (err){
-            //console.log(err);
-        }
+        is_owner ? setPostData({ title, rating, content, image }) : history.push("/");
+      } catch (err) {
+        // console.log(err);
+      }
     };
 
     handleMount();
@@ -68,16 +69,17 @@ function PostEditForm() {
 
     formData.append("title", title);
     formData.append("content", content);
+    formData.append("rating", rating);
 
-    if (imageInput?.current?.files[0]){
-        formData.append("image", imageInput.current.files[0]);
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
     }
 
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
-      //console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -91,7 +93,24 @@ function PostEditForm() {
         <Form.Control
           type="text"
           name="title"
+          placeholder="e.g name of the game"
           value={title}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Rating</Form.Label>
+        <Form.Control
+          type="text"
+          name="rating"
+          placeholder="e.g 10/10 (optional)"
+          value={rating}
           onChange={handleChange}
         />
       </Form.Group>
@@ -107,6 +126,7 @@ function PostEditForm() {
           as="textarea"
           rows={6}
           name="content"
+          placeholder="Add a caption, ask a question or give game advice"
           value={content}
           onChange={handleChange}
         />
