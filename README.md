@@ -239,16 +239,51 @@ In the future I would love to include the following aspects to make the site com
 
 -The components are created in separate files. These files are located in the components folder. This includes:
 
-Asset.js
 Avatar.js
+Asset.js
 MoreDropDown.js
 NavBar.js
 NotFound.js
 
 - By creating them in separate files within the components folder the individual components can be imported where needed in the rest of the application.
 
+Avatar.js
+
 - For example: the Avatar component is imported from its Avatar.js file into the Profile.js file, so it can be displayed on the users profile page without having to rewrite the code for it there too.
- 
+
+- The Avatar component is also imported into the NavBar.js file to display the users Avatar in the NavBar if logged in
+- The Comment.js file to display the Avatar of the user who owns the comment
+- The CommentCreateForm.js file so the user can see their Avatar when writting their comment
+- The Post.js file so that users can see the post owner's Avatar
+
+
+Asset.js
+
+- The Asset component is also imported into the NotFound.js file
+- The PostCreateForm.js
+- The PostPage.js
+- The PostsPage.js
+- The PopularProfiles.js
+- ProfilePage.js
+
+
+MoreDropDown.js
+
+- The Comment.js
+- The Post.js
+- The ProfilePage.js
+
+
+NavBar.js
+
+- The App.js
+
+
+NotFound.js
+
+- The App.js
+
+
 ---
 
 ## Bugs
