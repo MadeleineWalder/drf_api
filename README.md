@@ -235,53 +235,58 @@ In the future I would love to include the following aspects to make the site com
 
 ## Reusable React Components
 
-- Using the Frontend JavaScript library React, I was able to combine reusable components to help create the user interface.
+Using the Frontend JavaScript library React, I was able to combine reusable components to help create the user interface.
+The components are created in separate files. These files are located in the components folder. This includes:
 
--The components are created in separate files. These files are located in the components folder. This includes:
+- Avatar.js
+- Asset.js
+- MoreDropDown.js
+- NavBar.js
+- NotFound.js
 
-Avatar.js
-Asset.js
-MoreDropDown.js
-NavBar.js
-NotFound.js
+By creating them in separate files within the components folder the individual components can be imported where needed in the rest of the application.
 
-- By creating them in separate files within the components folder the individual components can be imported where needed in the rest of the application.
+**Avatar.js**
 
-Avatar.js
+This is the users customizable, circular profile picture used to help them identify other users and distinguish them from themselves.
 
-- For example: the Avatar component is imported from its Avatar.js file into the Profile.js file, so it can be displayed on the users profile page without having to rewrite the code for it there too.
-
-- The Avatar component is also imported into the NavBar.js file to display the users Avatar in the NavBar if logged in
-- The Comment.js file to display the Avatar of the user who owns the comment
-- The CommentCreateForm.js file so the user can see their Avatar when writting their comment
-- The Post.js file so that users can see the post owner's Avatar
-
-
-Asset.js
-
-- The Asset component is also imported into the NotFound.js file
-- The PostCreateForm.js
-- The PostPage.js
-- The PostsPage.js
-- The PopularProfiles.js
-- ProfilePage.js
+- Imported into the Profile.js file, so it can be displayed on the users profile page without having to rewrite the code for it there too.
+- Imported into the NavBar.js file to display the users Avatar in the NavBar if logged in
+- Imported into the Comment.js file to display the Avatar of the user who owns the comment
+- Imported into the CommentCreateForm.js file so the user can see their Avatar when writting their comment
+- Imported into the Post.js file so that users can see the post owner's Avatar
 
 
-MoreDropDown.js
+**Asset.js**
 
-- The Comment.js
-- The Post.js
-- The ProfilePage.js
+Essentially the Asset component does the same job in all these files, simply rendering a loading spinner when the application needs a second to search for a post or load a page.
+
+- Imported into the NotFound.js file
+- Imported into the PostCreateForm.js 
+- Imported into the PostPage.js
+- Imported into the PostsPage.js
+- Imported into the PopularProfiles.js
+- Imported into the ProfilePage.js
 
 
-NavBar.js
+**MoreDropDown.js**
 
-- The App.js
+This component is a toggle drop down menu that can allow the user to edit and/or delete a comment, post and profile.
+
+- Imported into the Comment.js
+- Imported into the Post.js
+- Imported into the ProfilePage.js
 
 
-NotFound.js
+**NavBar.js**
 
-- The App.js
+The Navbar is imported into App.js to be used on the home page of the site. If more pages where to be added, like for example a market page where users could buy and sell pre-owned games, the navbar could be reused there. It would allow the user to navigate to and from that page seemlessly without the code being re-written. This is good practice as it would save time in the future.
+
+
+**NotFound.js**
+
+NotFound.js is imported into the App.js and is used to tell users when a page they are looking for is not found. This could be because of a misspelled or non-existant url typed by the user. 
+As with NavBar.js it is only imported into one file, however it is easy to reuse this component elsewhere in the future.
 
 
 ---
