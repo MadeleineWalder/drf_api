@@ -9,7 +9,7 @@ This site is designed to be a social media platform aimed specifically at gamers
 
 ---
 
-## The Fontend
+## The Fontend Development
 
 - While it is crusial that the back end is functional, the main focus for this project was the front end. Front end developers often focus on the user interface (UI) and user experience (UX) to create an interactive and user friendly application. This is what I tried to accomplish in this project, using wireframes to translate my ideas into a responsive and functioning website.
 
@@ -231,6 +231,24 @@ In the future I would love to include the following aspects to make the site com
 
 - Able to view followers/following -being able to see a list of followers or people you are following would make it easier to follow/unfollow speific people so the user doesn't have to scroll through the feed to try to find someone.
 
+---
+
+## Reusable React Components
+
+- Using the Frontend JavaScript library React, I was able to combine reusable components to help create the user interface.
+
+-The components are created in separate files. These files are located in the components folder. This includes:
+
+Asset.js
+Avatar.js
+MoreDropDown.js
+NavBar.js
+NotFound.js
+
+- By creating them in separate files within the components folder the individual components can be imported where needed in the rest of the application.
+
+- For example: the Avatar component is imported from its Avatar.js file into the Profile.js file, so it can be displayed on the users profile page without having to rewrite the code for it there too.
+ 
 ---
 
 ## Bugs
