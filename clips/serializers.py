@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from posts.models import Clips
+from clips.models import Clips
 from likes.models import Like
 
 
@@ -27,13 +27,13 @@ class ClipsSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(
-                owner=user, post=obj
+                owner=user, clips=obj
             ).first()
             return like.id if like else None
         return None
 
     class Meta:
-        model = Post
+        model = Clips
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',

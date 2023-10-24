@@ -14,8 +14,8 @@ class ClipsList(generics.ListCreateAPIView):
     serializer_class = ClipsSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Clips.objects.annotate(
-        likes_count=Count('likes', distinct=True),
-        comments_count=Count('comment', distinct=True)
+        # likes_count=Count('likes', distinct=True),
+        # comments_count=Count('comments', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -24,7 +24,7 @@ class ClipsList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         'owner__followed__owner__profile',
-        'likes__owner__profile',
+        # 'likes__owner__profile',
         'owner__profile',
         'owner__followed__owner__profile',
     ]
@@ -49,6 +49,6 @@ class ClipsDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ClipsSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Clips.objects.annotate(
-        likes_count=Count('likes', distinct=True),
-        comments_count=Count('comment', distinct=True)
+        # likes_count=Count('likes', distinct=True),
+        # comments_count=Count('comments', distinct=True)
     ).order_by('-created_at')
