@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-import Image from "react-bootstrap/Image";
+// import Image from "react-bootstrap/Image";
 
 import Asset from "../../components/Asset";
 
@@ -31,7 +31,7 @@ function ClipsCreateForm() {
   });
   const { title, content, video } = postData;
 
-  const imageInput = useRef(null);
+  const videoInput = useRef(null);
   const history = useHistory();
 
   const handleChange = (event) => {
