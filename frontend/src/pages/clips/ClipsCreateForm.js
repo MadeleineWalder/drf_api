@@ -94,7 +94,7 @@ function ClipsCreateForm() {
           as="textarea"
           rows={6}
           name="content"
-          placeholder="Add a short caption!"
+          placeholder="Caption your clip!"
           value={content}
           onChange={handleChange}
         />
@@ -146,7 +146,7 @@ function ClipsCreateForm() {
                 >
                   <Asset
                     src={Upload}
-                    message="Click or tap to upload an video"
+                    message="Click or tap to upload a video"
                   />
                 </Form.Label>
               )}
