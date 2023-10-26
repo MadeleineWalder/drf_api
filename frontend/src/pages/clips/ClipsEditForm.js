@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,21 +6,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 
-import Asset from "../../components/Asset";
-
-import Upload from "../../assets/upload.png";
-
-import styles from "../../styles/PostCreateEditForm.module.css"; // change
+import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useRedirect } from "../../hooks/useRedirect";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-function ClipsCreateForm() {
-  useRedirect("loggedOut");
+function ClipsEditForm() {
   const [errors, setErrors] = useState({});
 
   const [clipsData, setClipsData] = useState({
@@ -31,8 +27,23 @@ function ClipsCreateForm() {
   const { title, content, video } = clipsData;
 
   const videoInput = useRef(null);
-
   const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/clips/${id}/`);
+        const { title, content, video, is_owner } = data;
+
+        is_owner ? setClipsData({ title, content, video }) : history.push("/");
+      } catch (err) {
+        // console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [history, id]);
 
   const handleChange = (event) => {
     setClipsData({
@@ -43,6 +54,7 @@ function ClipsCreateForm() {
 
   const handleChangeVideo = (event) => {
     if (event.target.files.length) {
+      URL.revokeObjectURL(video);
       setClipsData({
         ...clipsData,
         video: URL.createObjectURL(event.target.files[0]),
@@ -51,17 +63,21 @@ function ClipsCreateForm() {
   };
 
   const handleSubmit = async (event) => {
-    
     event.preventDefault();
     const formData = new FormData();
+
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("video", videoInput.current.files[0]);
+
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
+    }
 
     try {
-      const { data } = await axiosReq.clips("/clips/", formData);
-      history.push(`/clips/${data.id}`);
+      await axiosReq.put(`/clips/${id}/`, formData);
+      history.push(`/clips/${id}`);
     } catch (err) {
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -77,6 +93,22 @@ function ClipsCreateForm() {
           name="title"
           placeholder="e.g name of the game"
           value={title}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Rating</Form.Label>
+        <Form.Control
+          type="text"
+          name="rating"
+          placeholder="e.g 10/10 (optional)"
+          value={rating}
           onChange={handleChange}
         />
       </Form.Group>
@@ -107,10 +139,10 @@ function ClipsCreateForm() {
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
       >
-        Cancel
+        cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Create
+        save
       </Button>
     </div>
   );
@@ -123,35 +155,26 @@ function ClipsCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {video ? (
-                // Display the video preview if available
-                <video
-                  className={appStyles.Video}
-                  controls
-                >
-                  <source src={video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
+              <figure>
+                <Image className={appStyles.Image} src={image} rounded />
+              </figure>
+              <div>
                 <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="video-upload"
+                  className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  htmlFor="image-upload"
                 >
-                  <Asset
-                    src={Upload}
-                    message="Click or tap to upload a video"
-                  />
+                  Change the image
                 </Form.Label>
-              )}
+              </div>
 
               <Form.File
-                id="video-upload"
-                accept="video/*"
-                onChange={handleChangeVideo}
-                ref={videoInput}
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+                ref={imageInput}
               />
             </Form.Group>
-            {errors?.video?.map((message, idx) => (
+            {errors?.image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
@@ -168,4 +191,4 @@ function ClipsCreateForm() {
   );
 }
 
-export default ClipsCreateForm;
+export default ClipsEditForm;
