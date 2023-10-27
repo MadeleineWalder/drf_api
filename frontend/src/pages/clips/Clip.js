@@ -25,7 +25,7 @@ const Clip = (props) => {
     content,
     video,
     updated_at,
-    postPage,
+    clipPage,
     setClips,
   } = props;
 
@@ -88,7 +88,7 @@ const Clip = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            { is_owner && postPage && (
+            { is_owner && clipPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
