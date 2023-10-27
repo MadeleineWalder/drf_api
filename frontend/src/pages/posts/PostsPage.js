@@ -20,6 +20,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+// Aka the Feed page
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

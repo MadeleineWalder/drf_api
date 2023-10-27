@@ -10,13 +10,16 @@ import ClipsCreateForm from "./pages/clips/ClipsCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import ClipPage from "./pages/clips/ClipPage";
 import PostsPage from "./pages/posts/PostsPage";
+import ClipsPage from "./pages/clips/ClipsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostEditForm from "./pages/posts/PostEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import ContactCreateForm from "./pages/contact/ContactCreateForm";
 import NotFound from "./components/NotFound";
+
 
 function App() {
   const currentUser = useCurrentUser();
@@ -46,6 +49,16 @@ function App() {
           />
           <Route
             exact
+            path="/clips"
+            render={() => (
+              <ClipsPage
+                message="No results found. Adjust the search keyword or follow a user."
+                filter={`owner__followed__owner__profile=${profile_id}&`}
+              />
+            )}
+          />
+          <Route
+            exact
             path="/liked"
             render={() => (
               <PostsPage
@@ -61,6 +74,7 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/clips/:id" render={() => <ClipPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
+          <Route exact path="/contact" render={() => <ContactCreateForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route
             exact
@@ -77,7 +91,6 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>

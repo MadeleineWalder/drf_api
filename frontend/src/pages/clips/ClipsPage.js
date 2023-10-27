@@ -35,13 +35,13 @@ function ClipsPage({ message, filter = "" }) {
         setClips(data);
         setHasLoaded(true);
       } catch (err) {
-        //console.log(err);
+        console.log(err);
       }
     };
 
     setHasLoaded(false);
     const timer = setTimeout(() => {
-      fetchPosts();
+      fetchClips();
     }, 1000);
 
     return () => {

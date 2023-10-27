@@ -11,7 +11,7 @@ import Asset from "../../components/Asset";
 
 import Upload from "../../assets/upload.png";
 
-import styles from "../../styles/PostCreateEditForm.module.css"; // change
+import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
@@ -51,17 +51,20 @@ function ClipsCreateForm() {
   };
 
   const handleSubmit = async (event) => {
-    
-    event.preventDefault();
+    console.log("Clips form handle submit triggered")
+    // event.preventDefault();
     const formData = new FormData();
+
     formData.append("title", title);
     formData.append("content", content);
     formData.append("video", videoInput.current.files[0]);
+    console.log(title, content, video)
 
     try {
       const { data } = await axiosReq.clips("/clips/", formData);
       history.push(`/clips/${data.id}`);
     } catch (err) {
+      console.error("Form submission error:", err); // Log the error here
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

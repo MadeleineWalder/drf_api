@@ -42,7 +42,7 @@ const Clip = (props) => {
       await axiosRes.delete(`/clips/${id}/`);
       history.goBack();
     } catch (err) {
-      // console.log(err);
+      console.log(err);
     }
   };
 
@@ -58,7 +58,7 @@ const Clip = (props) => {
         }),
       }));
     } catch (err) {
-      // console.log(err);
+      console.log(err);
     }
   };
 
