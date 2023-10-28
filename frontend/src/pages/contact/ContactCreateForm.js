@@ -17,6 +17,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 import { NotificationManager } from "react-notifications";
 
+
 function ContactCreateForm() {
     useRedirect("loggedOut");
   
@@ -60,6 +61,7 @@ function ContactCreateForm() {
           <Form.Control
             type="text"
             name="title"
+            placeholder="Title your message here..."
             value={title}
             onChange={handleChange}
           />
@@ -100,18 +102,17 @@ function ContactCreateForm() {
   
     return (
       <Form onSubmit={handleSubmit}>
-        <Row>
+        <Row className="justify-content-center">
           <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
             <Container
               className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
             >
              <Col className="text-center">
-                  <h2>Get In Touch</h2>
+                  <h2>Contact Us</h2>
                   <p>
-                      Have an enquery? Fill in the form bellow and we'll answer your
-                      question shortly
+                      Want to report a user or simply have a question? Get in touch!
                   </p>
-                  <div className="d-md-none">{textFields}</div>
+                  <div>{textFields}</div>
               </Col>
             </Container>
           </Col>

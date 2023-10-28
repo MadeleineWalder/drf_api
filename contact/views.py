@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from .models import ContactForm
+from .models import Contact
 from .serializers import ContactFormSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 from rest_framework.permissions import IsAdminUser
@@ -10,7 +10,7 @@ class ContactList(generics.ListCreateAPIView):
     List or create contact form for logged in users
     """
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = ContactForm.objects.all()
+    queryset = Contact.objects.all()
     serializer_class = ContactFormSerializer
 
     def perform_create(self, serializer):
@@ -23,5 +23,5 @@ class ContactDetail(generics.RetrieveUpdateDestroyAPIView):
     Can delete if user logged in and owner
     """
     permission_classes = [permissions.IsAdminUser]
-    queryset = ContactForm.objects.all()
+    queryset = Contact.objects.all()
     serializer_class = ContactFormSerializer
