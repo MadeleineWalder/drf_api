@@ -74,7 +74,8 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/clips/:id" render={() => <ClipPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/contact" render={() => <ContactCreateForm />} />
+          {/* was contact, changed to contact/create */}
+          <Route exact path="/contact/create" render={() => <ContactCreateForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route
             exact

@@ -72,9 +72,10 @@ const NavBar = () => {
         <i className="fas fa-video"></i>Clips
       </NavLink>
       <NavLink
+        /* was /contact changed to /contact/create */
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/contact"
+        to="/contact/create"
       >
         <i className="fas fa-message"></i>Contact
       </NavLink>

@@ -75,7 +75,8 @@ function ContactCreateForm() {
         <Form.Group>
           <Form.Label>Message</Form.Label>
           <Form.Control
-            type="text"
+            as="textarea"
+            rows={8}
             name="message"
             placeholder="Explain your problem or query..."
             value={message}
@@ -111,6 +112,7 @@ function ContactCreateForm() {
                   <h2>Contact Us</h2>
                   <p>
                       Want to report a user or simply have a question? Get in touch!
+                      Make sure to include an email so we can get back to you.
                   </p>
                   <div>{textFields}</div>
               </Col>
