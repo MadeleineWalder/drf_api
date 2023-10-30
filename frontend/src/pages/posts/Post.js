@@ -11,6 +11,9 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+// Notifications
+import { NotificationManager } from "react-notifications";
+
 
 const Post = (props) => {
   const {
@@ -43,7 +46,7 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
       history.goBack();
     } catch (err) {
-      // console.log(err);
+      NotificationManager.error("Unable to delete post, refresh & try again");
     }
   };
 
@@ -59,7 +62,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      // console.log(err);
+      NotificationManager.error("Unable to like post, refresh & try again");
     }
   };
 
@@ -75,7 +78,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      // console.log(err);
+      NotificationManager.error("Unable to unlike post, refresh & try again");
     }
   };
 

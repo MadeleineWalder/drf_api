@@ -43,7 +43,6 @@ function ContactCreateForm() {
   
       formData.append("title", title);
       formData.append("message", message);
-      console.log("handleSumbit function active")
   
       try {
         await axiosReq.post("/contact/", formData);

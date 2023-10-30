@@ -841,6 +841,26 @@ The 404 page on mobile:
 
 Outcome: tests passed
 
+### Notification Testing
+
+I used react-notifications to notify users apon certain events. It was super easy to set up by running the install command, importing into the files and adding into App.js.
+
+When the user submits a contact form they will see the success notification:
+
+The contact notification on desktop:
+
+![custom contact notification desktop](/docs/screenshots/notif-contact.png)
+
+The contact notification on tablet:
+
+![custom contact notification tablet](/docs/screenshots/)
+
+The contact notification on mobile:
+
+![custom contact notification mobile](/docs/screenshots/)
+
+Outcome: tests passed
+
 ---
 
 ### Validator Testing

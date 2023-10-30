@@ -7,6 +7,8 @@ import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
+// Notifications
+import { NotificationManager } from "react-notifications";
 
 const Comment = (props) => {
   const {
@@ -40,7 +42,13 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+      NotificationManager.info("Comment Removed Successfully");
+    } catch (err) {
+      NotificationManager.error(
+        "Unable to remove comment, try again later",
+        "Error"
+      );
+    }
   };
 
   return (

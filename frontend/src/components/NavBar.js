@@ -13,6 +13,9 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+// Notifications
+import { NotificationManager } from "react-notifications";
+
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -25,8 +28,9 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();
+      NotificationManager.info("Signed-Out Successfully");
     } catch (err) {
-      //console.log(err);
+      NotificationManager.error("Sign-out unsuccessful, please refresh", "Error");
     }
   };
 

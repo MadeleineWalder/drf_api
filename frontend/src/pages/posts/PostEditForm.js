@@ -16,6 +16,9 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
+// Notifications
+import { NotificationManager } from "react-notifications";
+
 function PostEditForm() {
   const [errors, setErrors] = useState({});
 
@@ -38,9 +41,7 @@ function PostEditForm() {
         const { title, rating, content, image, is_owner } = data;
 
         is_owner ? setPostData({ title, rating, content, image }) : history.push("/");
-      } catch (err) {
-        // console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -78,10 +79,11 @@ function PostEditForm() {
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
+      NotificationManager.success("Post updated successfully", "Success!");
     } catch (err) {
-      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
+        NotificationManager.success("Unable to update post", "Error");
       }
     }
   };

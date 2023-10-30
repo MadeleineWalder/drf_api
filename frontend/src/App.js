@@ -19,6 +19,9 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ContactCreateForm from "./pages/contact/ContactCreateForm";
 import NotFound from "./components/NotFound";
+// Notifications
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 
 function App() {
@@ -29,6 +32,8 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
+        {/* React Notifications */}
+        <NotificationContainer />
         <Switch>
           <Route
             exact

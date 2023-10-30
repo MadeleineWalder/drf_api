@@ -20,6 +20,9 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
+// Notifications
+import { NotificationManager } from "react-notifications";
+
 function PostCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
@@ -64,10 +67,11 @@ function PostCreateForm() {
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
+      NotificationManager.success("Posted!");
     } catch (err) {
-      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
+        NotificationManager.error("Unable to post", "Error");
       }
     }
   };
