@@ -843,7 +843,7 @@ Outcome: tests passed
 
 ### Notification Testing
 
-I used react-notifications to notify users apon certain events. It was super easy to set up by running the install command, importing into the files and adding into App.js.
+I used react-notifications to notify users apon certain events. It was super easy to set up by running the install command, importing the notification container and CSS into the files, and adding them into App.js so they render.
 
 When the user submits a contact form they will see the success notification:
 
@@ -853,11 +853,43 @@ The contact notification on desktop:
 
 The contact notification on tablet:
 
-![custom contact notification tablet](/docs/screenshots/)
+![custom contact notification tablet](/docs/screenshots/notif-contact-d.jpg)
 
 The contact notification on mobile:
 
-![custom contact notification mobile](/docs/screenshots/)
+![custom contact notification mobile](/docs/screenshots/notif-contact-m.jpg)
+
+Outcome: tests passed
+
+When the user creates a post they will see the success notification:
+
+The post notification on desktop:
+
+![custom post notification desktop](/docs/screenshots/notif-post-d.jpg)
+
+The post notification on tablet:
+
+![custom post notification tablet](/docs/screenshots/notif-post-t.jpg)
+
+The post notification on mobile:
+
+![custom post notification mobile](/docs/screenshots/notif-post-m.jpg)
+
+Outcome: tests passed
+
+When the user edits a post they will see the success notification:
+
+The edit notification on desktop:
+
+![custom edit notification desktop](/docs/screenshots/notif-edit-d.jpg)
+
+The edit notification on tablet:
+
+![custom edit notification tablet](/docs/screenshots/notif-edit-t.jpg)
+
+The edit notification on mobile:
+
+![custom edit notification mobile](/docs/screenshots/notif-edit-m.jpg)
 
 Outcome: tests passed
 
