@@ -9,9 +9,16 @@ This site is designed to be a social media platform aimed specifically at gamers
 
 ---
 
-## The Fontend Development
+## The Frontend Development
 
 - While it is crusial that the back end is functional, the main focus for this project was the front end. Front end developers often focus on the user interface (UI) and user experience (UX) to create an interactive and user friendly application. This is what I tried to accomplish in this project, using wireframes to translate my ideas into a responsive and functioning website.
+
+---
+
+## New Updates!
+
+(1/11/2023)
+- Contact. A Contact form with a custom model created on separate page that users can navigate to using the navbar Contact link. Allows the user the submit a titled message to the backend where admin can recieve it.
 
 ---
 
@@ -42,6 +49,12 @@ These wireframe were some basic ideas of how I wanted my site to look. I waanted
 - The wireframe for the profile page: something I forgot to consider here at the time of planning was that if a user is signed in, and is viewing another users profile, they will also see the follow/ unfollow button for that profile.
 
 ![wireframe profile page](/docs/wireframes//wfprofile.jpg)
+
+### Update!
+
+- Contact form page wireframe:
+
+![wireframe profile page](/docs/wireframes//contact-wireframe.jpg)
 
 
 ## User Stories
@@ -90,6 +103,16 @@ The Profile Page:
 - View all posts by a specific user: As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them
 - Edit profile: As a logged in user I can edit my profile so that I can change my profile picture and bio
 - Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+
+### Update!
+
+The Contact Form Page:
+
+- As a user I can navigate to the contact form using the navbar so that it is easy to access
+- As a user I can view the contact form on a separate page so that it is clear and not cluttering the page
+- As a user I can submit a contact form so that I can ask questions or report problems to the admin
+- As a user I am notified if my contact is successfully sent so I know that the submit worked
+- As a user I am notified if my contact is unsuccessfully sent so I know to try again
 
 ---
 
@@ -208,6 +231,15 @@ Signed out:
 - The owner and other users can also view its comments or make comments using the comment form if logged in.
 
 ![comments](/docs/screenshots/comment1.jpg)
+
+
+### Update! > Contact Form Page
+
+- When the user clicks the 'Contact' button on the navbar they are taken to the contact form on a separate page:
+
+![](/docs/screenshots)
+
+- 
 
 ---
 
@@ -841,6 +873,40 @@ The 404 page on mobile:
 
 Outcome: tests passed
 
+### Update!
+
+Contact form is accessed by clicking the 'Contact' link on the navbar:
+
+The Contact form page on desktop:
+
+![custom Contact form page desktop](/docs/screenshots/con-d.jpg)
+
+The Contact form page on tablet:
+
+![custom Contact form page tablet](/docs/screenshots/con-t.jpg)
+
+The Contact form page on mobile:
+
+![custom Contact form page mobile](/docs/screenshots/con-m.jpg)
+
+Outcome: tests passed
+
+The Contact form fields must be filled in or the form will not submit and the users will see an the error notification:
+
+The Contact form fields and error notification on desktop:
+
+![custom Contact form fields and error notification desktop](/docs/screenshots/contact-fields-d.jpg)
+
+The Contact form fields and error notification on tablet:
+
+![custom Contact form fields and error notification tablet](/docs/screenshots/contact-fields-t.jpg)
+
+The Contact form fields and error notification on mobile:
+
+![custom Contact form fields and error notification mobile](/docs/screenshots/contact-fields-m.jpg)
+
+Outcome: tests passed
+
 ### Notification Testing
 
 I used react-notifications to notify users apon certain events. It was super easy to set up by running the install command, importing the notification container and CSS into the files, and adding them into App.js so they render.
@@ -890,6 +956,39 @@ The edit notification on tablet:
 The edit notification on mobile:
 
 ![custom edit notification mobile](/docs/screenshots/notif-edit-m.jpg)
+
+Outcome: tests passed
+
+When the user removes a comment they will see the success notification:
+
+The comment notification on desktop:
+
+![The comment on desktop](/docs/screenshots/notif-com-del-d.jpg)
+![custom comment notification desktop](/docs/screenshots/notif-com-del-d-2.jpg)
+
+The comment notification on tablet:
+
+![custom comment notification tablet](/docs/screenshots/notif-com-del-t.jpg)
+
+The comment notification on mobile:
+
+![custom comment notification mobile](/docs/screenshots/notif-com-del-m.jpg)
+
+Outcome: tests passed
+
+When the user signs out they will see the success notification:
+
+The sign out notification on desktop:
+
+![custom sign out notification desktop](/docs/screenshots/notif-so-d.jpg)
+
+The sign out notification on tablet:
+
+![custom sign out notification tablet](/docs/screenshots/notif-so-t.jpg)
+
+The sign out notification on mobile:
+
+![custom sign out notification mobile](/docs/screenshots/notif-so-m.jpg)
 
 Outcome: tests passed
 
