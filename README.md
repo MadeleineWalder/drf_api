@@ -235,11 +235,9 @@ Signed out:
 
 ### Update! > Contact Form Page
 
-- When the user clicks the 'Contact' button on the navbar they are taken to the contact form on a separate page:
+- When the user clicks the 'Contact' button on the navbar they are taken to the contact form on a separate page. From here they can fill out and submit the form:
 
-![](/docs/screenshots)
-
-- 
+![](/docs/screenshots/con-d.jpg)
 
 ---
 
@@ -873,7 +871,7 @@ The 404 page on mobile:
 
 Outcome: tests passed
 
-### Update!
+### Update! -Contact Form Testing
 
 Contact form is accessed by clicking the 'Contact' link on the navbar:
 
@@ -907,7 +905,19 @@ The Contact form fields and error notification on mobile:
 
 Outcome: tests passed
 
-### Notification Testing
+After the user clicks submit the contact form is sent to the backend where an admin can review it:
+
+The Contact form backend:
+
+![The Contact form backend](/docs/screenshots/contact-backend-1.jpg)
+
+![The Contact form backend](/docs/screenshots/contact-backend-2.jpg)
+
+![The Contact form backend](/docs/screenshots/contact-backend-3.jpg)
+
+Outcome: tests passed
+
+### Update! -Notification Testing
 
 I used react-notifications to notify users apon certain events. It was super easy to set up by running the install command, importing the notification container and CSS into the files, and adding them into App.js so they render.
 
