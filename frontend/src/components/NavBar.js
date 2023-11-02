@@ -43,7 +43,7 @@ const NavBar = () => {
       <i className="far fa-plus-square"></i>Post
     </NavLink>
   );
-  const addClipsIcon = (
+  /* const addClipsIcon = (
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
@@ -51,7 +51,7 @@ const NavBar = () => {
     >
       <i className="far fa-plus-square"></i>Clip
     </NavLink>
-  );
+  ); */
   const loggedInIcons = (
     <>
       <NavLink
@@ -68,15 +68,14 @@ const NavBar = () => {
       >
         <i className="fas fa-heart"></i>Liked
       </NavLink>
-      <NavLink
+      {/* <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/clips"
       >
         <i className="fas fa-video"></i>Clips
-      </NavLink>
+      </NavLink> */}
       <NavLink
-        /* was /contact changed to /contact/create */
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/contact/create"
@@ -127,7 +126,7 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
-        {currentUser && addClipsIcon}
+        {/* {currentUser && addClipsIcon} */}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}

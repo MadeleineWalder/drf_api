@@ -17,14 +17,15 @@ This site is designed to be a social media platform aimed specifically at gamers
 
 ## New Updates!
 
-(1/11/2023)
-- Contact. A Contact form with a custom model created on separate page that users can navigate to using the navbar Contact link. Allows the user the submit a titled message to the backend where admin can recieve it.
+*(1/11/2023)*
+- **Contact:** A Contact form with a custom model created on separate page that users can navigate to using the navbar Contact link. Allows the user the submit a titled message to the backend where admin can recieve it.
+- **Notifications:** Added React Notifications to give certain alerts to users. See Technologies and Testing for more.
 
 ---
 
 ## Project Board
 
-### Link: https://github.com/users/MadeleineWalder/projects/6
+### Link: https://github.com/users/MadeleineWalder/projects/7
 
 Here you can see:
 - The Wireframe
@@ -232,6 +233,11 @@ Signed out:
 
 ![comments](/docs/screenshots/comment1.jpg)
 
+### Update! > Navbar Contact Icon
+
+- Navbar now includes a 'Contact' icon which links to the Contact form page:
+
+![Navbar with contact icon link](/docs/screenshots/navbar-update.jpg)
 
 ### Update! > Contact Form Page
 
@@ -323,6 +329,14 @@ As with NavBar.js it is only imported into one file, however it is easy to reuse
 
 ## Bugs
 
+### Major Bug:
+
+- Bug: I added a 'Clips' feature to the site, with the idea that users could share clips with their followers on a separate 'Clips' page. I created the model and the JavaScript form for the clips, but the form doesn't seem to submit.
+
+- Solution: Added a console log to the handleSubmit function to log the form content to the console when sumbitted. This did work and the entered values were logged, so the handleSubmit function is working but the form never seems to post to the Clips page. All of the URLs look correct so I'm not sure why this is.
+
+- Outcome: **Unfixed** due to time limit. I have left all the code included in the project and will work on a fix after this project is graded. I commented out the navbar links to the clips page and create form so it cannot be accessed by users.
+
 
 ### Minor Bugs:
 
@@ -355,6 +369,9 @@ As with NavBar.js it is only imported into one file, however it is easy to reuse
 - [Fontawesome](https://fontawesome.com/) is where I sourced my icons.
 - [Pexels](https://www.pexels.com/) is the website I used to source any images that I didn't take myself.
 - I used the website [amiresponsive.co.uk](https://amiresponsive.co.uk/) to show my finished site on different devices at the top of this page.
+
+### Update!
+- I used [React Notifications](https://www.npmjs.com/package/react-notifications) to add pop-up notification messages.
 
 ---
 
@@ -417,13 +434,43 @@ Navbar logged in on tablet:
 
 ![navbar on tablet](/docs/screenshots/navbartin.jpg)
 
-Navbar logged in on mobile:
+Navbar logged in on mobile (can also toggle):
 
 ![Navbar logged in on mobile](/docs/screenshots/navbarmin1.jpg)
 
 ![Navbar logged in on mobile](/docs/screenshots/navbarmin2.jpg)
 
 Outcome: tests passed
+
+---
+
+### Update! > Contact Icon
+
+The navbar should now also show the contact icon navlink when a user is logged in:
+
+Navbar logged in on desktop:
+
+![Navbar logged in on desktop](/docs/screenshots/nav-new-d.jpg)
+
+Navbar logged in on tablet:
+
+![navbar on tablet](/docs/screenshots/nav-new-t.jpg)
+
+Navbar logged in on mobile (can also toggle):
+
+![Navbar logged in on mobile](/docs/screenshots/nav-new-m1.jpg)
+
+![Navbar logged in on mobile](/docs/screenshots/nav-new-m2.jpg)
+
+Outcome: tests passed
+
+The contact icon should also have the hover and active class:
+
+![Contact icon active](/docs/screenshots/contact-active.jpg)
+
+Outcome: tests passed
+
+---
 
 Clicking on logo should take the user back to the home page:
 
@@ -870,6 +917,8 @@ The 404 page on mobile:
 ![custom 404 page mobile](/docs/screenshots/404m.jpg)
 
 Outcome: tests passed
+
+---
 
 ### Update! -Contact Form Testing
 
