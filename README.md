@@ -1425,6 +1425,34 @@ The results are not as good as I had hoped, with only 68 on performance due to a
 
 ---
 
+### Update! > Contact Form
+
+- ContactCreateForm.js:
+
+![The contact create form validation](/docs/screenshots/con-val.jpg)
+
+- Contact models.py:
+
+![The contact create form validation](/docs/screenshots/con-model.jpg)
+
+- Contact serializers.py:
+
+![The contact create form validation](/docs/screenshots/con-ser.jpg)
+
+- Contact urls.py:
+
+![The contact create form validation](/docs/screenshots/con-urls.jpg)
+
+- Contact views.py:
+
+![The contact create form validation](/docs/screenshots/con-views.jpg)
+
+- Contact admin.py:
+
+![The contact create form validation](/docs/screenshots/con-admin.jpg)
+
+---
+
 ## Deployment:
 
 ### Gitpod

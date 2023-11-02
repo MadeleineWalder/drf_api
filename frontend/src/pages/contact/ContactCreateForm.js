@@ -52,7 +52,7 @@ function ContactCreateForm() {
         setErrors(err.response?.data);
         NotificationManager.error("Unable to send message", "Error");
         }
-      }
+      };
   
     const textFields = (
       <div className="text-center">
