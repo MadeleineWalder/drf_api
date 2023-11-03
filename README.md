@@ -1480,17 +1480,18 @@ The results are not as good as I had hoped, with only 68 on performance due to a
 - The command 'pip install django-cloudinary-storage' installs the library, and then it must be added to the 'Installed Apps' list in settings.py.
 - The Cloudinary library also needs a 'CLOUDINARY_STORAGE' variable in the settings.py file that is set to the environment variable in env.py that is the 'API Environment variable' url.
 - It also requires a MEDIA_URL in settings.py, the standard Django folder to store media files. This is set to '/media/' so the settings know where to put our image files.
-- Lastly is the 'DEFAULT_FILE_STORAGE variable which is set to MediaCloudinaryStorage.
+- Lastly is the 'DEFAULT_FILE_STORAGE' variable which is set to MediaCloudinaryStorage.
 
 ### Heroku
 
 - For this project I deployed to Heroku at the begining of the project. Deploying early can save you a lot of time later on.
-- To do this I created a new Heroku app which I also named sushicat.
+- To do this I created a new Heroku app which I named drfapi1 the same as the project in github.
 - In the app settings I made sure to add all of the config vars I would need: the secret key, the port and my database url which I got from ElephantSQL.
 - I made sure to comment out the old database 'db.sqlite3' in the settings.py file and added in my new database url.
 - I also added my Heroku Hostname to the allowed hosts list.
 - Back in Heroku I went to the deployment tab for my app and selected Github. Then I searched for and selected my repository.
 - At the bottom of the page I ticked the box to enable automatic deploys, and then clicked deploy.
+- To redeploy my site after updates I would repeat the last step above (click the deploy button at the bottom of the settings tab).
 
 Link to deployed site: https://drfapi1-f061a902d0e8.herokuapp.com/
 
