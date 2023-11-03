@@ -363,6 +363,9 @@ As with NavBar.js it is only imported into one file, however it is easy to reuse
 
 - This site was created using these languages: Python, JavaScript, React, HTML and CSS.
 - Frameworks/Libraries: Django, REST and Bootstrap.
+- Pillow library installed for image rendering.
+- Cloudinary library installed for free image hosting.
+- ElephantSQL for a free POSTGRES database to host the site on.
 - Github and Gitpod are the platforms where I created this website. Github (and Gihub pages) for creating and storing my repositories and project board/issues, and Gitpod for writing the code.
 - Heroku was connected to my github repository for site deployment.
 - [Google Fonts](https://fonts.google.com/) is where I imported my font from.
@@ -1457,20 +1460,27 @@ The results are not as good as I had hoped, with only 68 on performance due to a
 
 ### Gitpod
 
-- Typing 'python3 manage.py runserver' into the Gitpod terminal allows you to view a preview of the site in a browser.
-- Dragging open the second terminal, type 'cd frontend' to ensure you in the frontend directory. Then type 'npm start' and click open preview to view the app.
-- Every time a secton of code is added the browser can be refreshed to see the change, sometimes you need to press ctrl + shift + R for changes to be updated.
-- To save and commit progress, type 'git add .' into the terminal to add all your changes followed by 'git commit -m' and then your message describing what you did in double quotes.
+- To run the site on port 8000: type 'cd frontend' into the terminal and then in a second terminal 'python3 manage.py runserver'. The will allow you to open the site on port 8000 where you can add '/admin' to the url andd access the Django Administration panel.
+- To open a preview of the site on port 8080 (helpful when making changes that don't affect the deployed version unless pushed to Heroku): after the steps above, in the first terminal type 'npm start' and click open browser or preview in the pop up notification.
+- Every time you change code you can save the file by pressing 'ctrl s', then the browser can be refreshed to see the change, sometimes you need to press ctrl + shift + R (hard reload) for changes to be updated.
+- To save changes, type 'git add .' into a new, third terminal to add all your changes followed by 'git commit -m' and then your message describing what you did in double quotes directly after the 'm'.
 - Typing 'git push' will then push your code, and this should be done at the end of every coding session or whenever you want an already deployed site to be updated.
-
+- To allow changes to be visible on the deployed Heroku app the staticfiles folder will need to be updated. To do this simply run this command in the third terminal: 'npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.' This essentially deletes the current staticfiles folder and creates a new one with all the changes. Then you will need to add/commit/push again, and redeploy the app in Heroku.
 
 ### ElephantSQL
 
-- I used ElephantSQL to install and manage the database. I had already set up an account so I could log in and begin.
+- I used ElephantSQL to install the backend database. I had already set up an account so I could log in and begin.
 - I clicked on the green 'Create New Instance' button in the top right.
 - I added details such as name, region and the type of plan I wanted which was the free 'Tiny Turtle' plan.
-- My database url was then provided for me to copy and paste into my config vars on Heroku.
+- My database url was then provided for me to copy and paste into my config vars on Heroku and into my env.py file as an os environ variable.
 
+### Cloudinary
+
+- I used my existing Cloudinary account to host the images for this project. All I had to do was head to my profile and copy my personal 'API Environment variable' url to paste into the env.py file, and add to my config vars in the Heroku app settings.
+- The command 'pip install django-cloudinary-storage' installs the library, and then it must be added to the 'Installed Apps' list in settings.py.
+- The Cloudinary library also needs a 'CLOUDINARY_STORAGE' variable in the settings.py file that is set to the environment variable in env.py that is the 'API Environment variable' url.
+- It also requires a MEDIA_URL in settings.py, the standard Django folder to store media files. This is set to '/media/' so the settings know where to put our image files.
+- Lastly is the 'DEFAULT_FILE_STORAGE variable which is set to MediaCloudinaryStorage.
 
 ### Heroku
 
